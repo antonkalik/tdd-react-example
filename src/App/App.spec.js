@@ -6,15 +6,26 @@ jest.mock("../components/Header", () => ({
 }));
 
 jest.mock("../components/Body", () => ({
-  Body: () => <div data-testid="body" />,
+  Body: ({ cards }) => <div data-testid="body">{cards.length}</div>,
 }));
 
-jest.mock("../components/Footer", () => ({
-  Footer: () => <div data-testid="footer" />,
-}));
+jest.mock("../components/Footer", () => {
+  return {
+    Footer: () => <div data-testid="footer" />,
+  };
+});
 
-describe("Footer", () => {
+describe("App", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render app", () => {
+    render(<App />);
+    expect(screen.getByTestId("app")).toMatchSnapshot();
+  });
+
+  it("should have one card", () => {
     render(<App />);
     expect(screen.getByTestId("app")).toMatchSnapshot();
   });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer should render app 1`] = `
+exports[`App should have one card 1`] = `
 <div
   class="sc-bczRLJ emciTv"
   data-testid="app"
@@ -10,7 +10,28 @@ exports[`Footer should render app 1`] = `
   />
   <div
     data-testid="body"
+  >
+    0
+  </div>
+  <div
+    data-testid="footer"
   />
+</div>
+`;
+
+exports[`App should render app 1`] = `
+<div
+  class="sc-bczRLJ emciTv"
+  data-testid="app"
+>
+  <div
+    data-testid="header"
+  />
+  <div
+    data-testid="body"
+  >
+    0
+  </div>
   <div
     data-testid="footer"
   />

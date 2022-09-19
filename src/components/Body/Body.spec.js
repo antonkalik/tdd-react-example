@@ -6,10 +6,6 @@ describe("Body", () => {
     render(<Body />);
   });
 
-  // afterEach(() => {
-  //   jest.clearAllMocks();
-  // });
-
   it("should render body", () => {
     expect(screen.getByTestId("body")).toMatchSnapshot();
   });
