@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render body 1`] = `
+<div
+  data-testid="body"
+>
+  <div
+    data-testid="cards"
+  >
+    <div
+      data-testid="no-cards-message"
+    >
+      No cards
+    </div>
+  </div>
+</div>
+`;
