@@ -3,15 +3,24 @@ import userEvent from "@testing-library/user-event";
 import { Header } from "./index";
 
 describe("Header", () => {
+  it("should render Header", () => {
+    render(<Header />)
+    expect(screen.getByTestId("header")).toMatchSnapshot();
+  });
+
   it("should have title", () => {
     const { container } = render(<Header />);
-    expect(container).toHaveTextContent("Header");
+    expect(container).toHaveTextContent("Logo Title");
   });
-  it("should have reset button", () => {
+
+  it("should have controls", () => {
     render(<Header />);
-    const element = screen.getByRole("button", { name: "Reset" });
-    expect(element).toBeInTheDocument();
+    const resetButton = screen.getByRole("button", { name: "Reset" });
+    const addButton = screen.getByRole("button", { name: "Add" });
+    expect(resetButton).toBeInTheDocument();
+    expect(addButton).toBeInTheDocument();
   });
+
   it("should call onReset function", () => {
     const onReset = jest.fn();
     render(<Header onReset={onReset} />);
@@ -19,20 +28,12 @@ describe("Header", () => {
     userEvent.click(element);
     expect(onReset).toHaveBeenCalled();
   });
-  it("should have Add button", () => {
-    render(<Header />);
-    const element = screen.getByRole("button", { name: "Add" });
-    expect(element).toBeInTheDocument();
-  });
+
   it("should call onAdd function", () => {
     const onAdd = jest.fn();
     render(<Header onAdd={onAdd} />);
     const element = screen.getByRole("button", { name: "Add" });
     userEvent.click(element);
     expect(onAdd).toHaveBeenCalled();
-  });
-  it("should render", () => {
-    const { container } = render(<Header />);
-    expect(container).toMatchSnapshot();
   });
 });

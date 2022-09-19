@@ -1,31 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import { App } from "./index";
 
-describe("App", () => {
-  beforeEach(() => {
-    render(<App />);
-  });
+jest.mock("../components/Header", () => ({
+  Header: () => <div data-testid="header" />,
+}));
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+jest.mock("../components/Body", () => ({
+  Body: () => <div data-testid="body" />,
+}));
 
-  it("should render header", () => {
-    const element = screen.getByTestId("header");
-    expect(element).toBeInTheDocument();
-  });
+jest.mock("../components/Footer", () => ({
+  Footer: () => <div data-testid="footer" />,
+}));
 
-  it("should render body", () => {
-    const element = screen.getByTestId("body");
-    expect(element).toBeInTheDocument();
-  });
-
-  it("should render footer", () => {
-    const element = screen.getByTestId("footer");
-    expect(element).toBeInTheDocument();
-  });
-
+describe("Footer", () => {
   it("should render app", () => {
+    render(<App />);
     expect(screen.getByTestId("app")).toMatchSnapshot();
   });
 });

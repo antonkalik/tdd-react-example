@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render footer 1`] = `
+<footer
+  class="sc-bczRLJ jQfjQy"
+  data-testid="footer"
+>
+  <p>
+    footer description
+  </p>
+</footer>
+`;

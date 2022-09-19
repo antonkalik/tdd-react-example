@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render body 1`] = `
+exports[`Body should render body 1`] = `
 <div
   data-testid="body"
 >

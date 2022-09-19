@@ -1,13 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import { Body } from "./index";
 
-describe("App", () => {
+describe("Body", () => {
   beforeEach(() => {
     render(<Body />);
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
+  // afterEach(() => {
+  //   jest.clearAllMocks();
+  // });
+
+  it("should render body", () => {
+    expect(screen.getByTestId("body")).toMatchSnapshot();
   });
 
   it("should render cards", () => {
@@ -34,9 +38,5 @@ describe("App", () => {
     const element = screen.getByTestId("card");
     expect(element).toBeInTheDocument();
     expect(element).toHaveTextContent("Card 1");
-  });
-
-  it("should render body", () => {
-    expect(screen.getByTestId("body")).toMatchSnapshot();
   });
 });
