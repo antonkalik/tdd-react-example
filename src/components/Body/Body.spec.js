@@ -2,22 +2,21 @@ import { render, screen } from "@testing-library/react";
 import { Body } from "./index";
 
 describe("Body", () => {
-  beforeEach(() => {
-    render(<Body />);
-  });
-
   it("should render body", () => {
+    render(<Body />);
     expect(screen.getByTestId("body")).toMatchSnapshot();
   });
 
-  it("should render cards", () => {
-    const element = screen.getByTestId("cards");
+  it("should render message with no cards", () => {
+    render(<Body />);
+    const element = screen.getByTestId("no-cards-message");
     expect(element).toBeInTheDocument();
   });
 
-  it("should render message with no cards", () => {
-    const element = screen.getByTestId("no-cards-message");
-    expect(element).toBeInTheDocument();
+  it("should render title", () => {
+    const { container } = render(<Body />);
+    const title = container.querySelector("h3");
+    expect(title).toHaveTextContent("Cards");
   });
 
   it("should render one card", () => {

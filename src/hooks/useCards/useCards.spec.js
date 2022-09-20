@@ -1,13 +1,8 @@
 import { renderHook, act } from "@testing-library/react-hooks";
+import { initCards, title } from "src/__mocks__/initCards";
 import { useCards } from "./index";
 
 describe("useCards", () => {
-  const title = "Test Card";
-  const initCards = Array.from({ length: 5 }, (_, i) => ({
-    title: `${title} ${i + 1}`,
-    id: i + 1,
-  }));
-
   it("should return an empty array if there are no cards", () => {
     const { result } = renderHook(() => useCards());
 

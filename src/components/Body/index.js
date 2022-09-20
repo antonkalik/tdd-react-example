@@ -1,6 +1,7 @@
 export const Body = ({ cards = [] }) => {
   return (
     <div data-testid="body">
+      <h3>Cards</h3>
       <div data-testid="cards">
         {cards.length === 0 ? (
           <div data-testid="no-cards-message">No cards</div>

@@ -4,6 +4,9 @@ exports[`Body should render body 1`] = `
 <div
   data-testid="body"
 >
+  <h3>
+    Cards
+  </h3>
   <div
     data-testid="cards"
   >
