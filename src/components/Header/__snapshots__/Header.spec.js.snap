@@ -2,7 +2,7 @@
 
 exports[`Header should render Header 1`] = `
 <header
-  class="sc-bczRLJ kuUTWK"
+  class="sc-bczRLJ fvGLJi"
   data-testid="header"
 >
   <h1>

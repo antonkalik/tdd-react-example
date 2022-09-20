@@ -1,19 +1,24 @@
-export const Body = ({ cards = [] }) => {
+import { Card } from "src/components/Card";
+import { StyledBody, StyledCards } from "./style";
+
+export const Body = ({ cards = [], removeCard }) => {
   return (
-    <div data-testid="body">
+    <StyledBody data-testid="body">
       <h3>Cards</h3>
-      <div data-testid="cards">
+      <StyledCards data-testid="cards">
         {cards.length === 0 ? (
-          <div data-testid="no-cards-message">No cards</div>
+          <h4>No cards</h4>
         ) : (
           cards.map((card, index) => (
-            <div key={index} data-testid="card">
-              <p>{card.id}</p>
-              <h4>{card.title}</h4>
-            </div>
+            <Card
+              key={card.id}
+              id={card.id}
+              title={card.title}
+              onRemove={removeCard}
+            />
           ))
         )}
-      </div>
-    </div>
+      </StyledCards>
+    </StyledBody>
   );
 };

@@ -1,10 +1,14 @@
 import { useCallback, useMemo, useState } from "react";
 
 export const useCards = (initCards = []) => {
-  const initState = initCards.map((card, index) => ({
-    ...card,
-    id: index + 1,
-  }));
+  const initState = useMemo(
+    () =>
+      initCards.map((card, index) => ({
+        ...card,
+        id: card.id || index + 1,
+      })),
+    [initCards.length]
+  );
   const [cards, setCards] = useState(initState);
 
   const memorisedCards = useMemo(() => cards, [cards.length]);

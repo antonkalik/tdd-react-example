@@ -4,14 +4,15 @@ import { Body } from "src/components/Body";
 import { Footer } from "src/components/Footer";
 import { useCards } from "src/hooks/useCards";
 import { StyledApp } from "./style";
+import { initCards } from "../__mocks__/initCards";
 
 export function App() {
-  const result = useCards();
+  const { cards, removeCard } = useCards(initCards);
 
   return (
     <StyledApp data-testid="app">
       <Header />
-      <Body cards={result.cards} />
+      <Body cards={cards} removeCard={removeCard} />
       <Footer />
     </StyledApp>
   );

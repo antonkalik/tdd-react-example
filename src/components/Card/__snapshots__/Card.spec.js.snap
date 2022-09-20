@@ -2,7 +2,7 @@
 
 exports[`Card should render Card 1`] = `
 <div
-  class="sc-bczRLJ blGaXB"
+  class="sc-bczRLJ iqeeJQ"
   data-testid="card"
 />
 `;
