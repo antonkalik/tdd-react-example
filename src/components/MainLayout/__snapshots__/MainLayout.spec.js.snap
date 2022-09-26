@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainLayout /> should render 1`] = `
+<div>
+  <div
+    data-testid="main-layout"
+  >
+    <div
+      data-testid="header"
+    >
+      Header
+    </div>
+    <div
+      data-testid="body"
+    />
+    <div
+      data-testid="footer"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
