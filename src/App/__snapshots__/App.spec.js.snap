@@ -6,15 +6,25 @@ exports[`App should render app 1`] = `
   data-testid="app"
 >
   <div
-    data-testid="header"
-  />
-  <div
-    data-testid="body"
+    data-testid="main-layout"
   >
-    0
+    <div
+      data-testid="header"
+    />
+    <div
+      data-testid="body"
+    >
+      <div
+        data-testid="home-view"
+      >
+        <h1>
+          HomeView
+        </h1>
+      </div>
+    </div>
+    <div
+      data-testid="footer"
+    />
   </div>
-  <div
-    data-testid="footer"
-  />
 </div>
 `;

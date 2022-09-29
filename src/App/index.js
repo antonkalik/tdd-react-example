@@ -1,24 +1,19 @@
 import React from "react";
-import { Header } from "src/components/Header";
-import { Body } from "src/components/Body";
-import { Footer } from "src/components/Footer";
+import { BrowserRouter } from "react-router-dom";
+import { Routes } from "src/Routes";
 import { useCards } from "src/hooks/useCards";
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-} from "react-router-dom";
+import { initCards } from "src/__mocks__/initCards";
 import { StyledApp } from "./style";
-import { initCards } from "../__mocks__/initCards";
+import StoreProvider from "../context";
 
 export function App() {
-  const { cards, removeCard } = useCards(initCards);
-
   return (
     <StyledApp data-testid="app">
-      <Header />
-      <Body cards={cards} removeCard={removeCard} />
-      <Footer />
+      <StoreProvider>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </StoreProvider>
     </StyledApp>
   );
 }

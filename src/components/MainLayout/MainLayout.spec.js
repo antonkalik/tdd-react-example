@@ -22,12 +22,9 @@ describe("<MainLayout />", () => {
 
   test("should have children", () => {
     render(
-      <MainLayout>
-        <div data-testid="children">Children</div>
-      </MainLayout>
+      <MainLayout />
     );
     expect(screen.getByTestId("body")).toBeInTheDocument();
-    expect(screen.getByTestId("children")).toBeInTheDocument();
   });
 
   test("should render", () => {
