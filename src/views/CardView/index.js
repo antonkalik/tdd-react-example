@@ -4,9 +4,9 @@ import { AppContext } from "src/context";
 
 export const CardView = () => {
   const { id } = useParams();
-  const { cards } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
-  const card = cards.find((card) => card.id === parseInt(id));
+  const card = state.cards.find((card) => card.id === parseInt(id));
 
   if (!card) {
     return (

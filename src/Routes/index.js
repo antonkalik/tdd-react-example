@@ -8,8 +8,8 @@ import { MainLayout } from "src/components/MainLayout";
 export const Routes = () => {
   return (
     <ReactRoutes>
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<HomeView />} />
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomeView />} />
         <Route path="/cards" element={<Outlet />}>
           <Route index element={<CardsView />} />
           <Route path=":id" element={<CardView />} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 
 export const initialState = { cards: [] };
 
@@ -30,7 +30,28 @@ export function reducer(state, action) {
 export const AppContext = React.createContext();
 
 const StoreProvider = ({ children }) => {
-  const value = React.useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const addCard = (title) => {
+    dispatch({ type: "ADD_CARD", payload: { title } });
+  };
+
+  const removeCard = (id) => {
+    dispatch({ type: "REMOVE_CARD", payload: { id } });
+  };
+
+  const reset = () => {
+    dispatch({ type: "RESET" });
+  };
+
+  const value = {
+    state,
+    actions: {
+      addCard,
+      removeCard,
+      reset,
+    },
+  };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

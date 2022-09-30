@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Body should render body 1`] = `
+exports[`<Cards /> should render cards 1`] = `
 <div
   class="sc-gsnTZi klvCoB"
-  data-testid="body"
+  data-testid="cards"
 >
   <h3>
     Cards
   </h3>
   <div
     class="sc-dkzDqf jOOvkG"
-    data-testid="cards"
+    data-testid="cards-list"
   >
     <h4>
       No cards

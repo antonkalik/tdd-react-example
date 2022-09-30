@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Routes } from "src/Routes";
-import { useCards } from "src/hooks/useCards";
-import { initCards } from "src/__mocks__/initCards";
 import { StyledApp } from "./style";
 import StoreProvider from "../context";
 

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardView /> should render the card view 1`] = `
+<div
+  data-testid="card-view"
+>
+  <p
+    data-testid="card-view-id"
+  >
+    9
+  </p>
+  <h1>
+    Card 9
+  </h1>
+</div>
+`;
+
+exports[`<CardView /> should show not found 1`] = `
+<div
+  data-testid="card-view"
+>
+  <h1>
+    Card not found
+  </h1>
+</div>
+`;

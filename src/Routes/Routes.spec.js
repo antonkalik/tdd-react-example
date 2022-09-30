@@ -1,8 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter, useParams } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { Routes } from "./index";
-import { AppContext } from "../context";
 
 jest.mock("src/views/HomeView", () => ({
   HomeView: () => <div data-testid="home-view">HomeView</div>,
@@ -10,6 +9,10 @@ jest.mock("src/views/HomeView", () => ({
 
 jest.mock("src/views/CardsView", () => ({
   CardsView: () => <div data-testid="cards-view">CardsView</div>,
+}));
+
+jest.mock("src/views/CardView", () => ({
+  CardView: () => <div data-testid="card-view">CardView</div>,
 }));
 
 jest.mock("src/views/AboutView", () => ({
@@ -39,35 +42,12 @@ describe("<Routes />", () => {
 
   test("should show card view", () => {
     render(
-      <AppContext.Provider value={{ cards: [] }}>
-        <MemoryRouter initialEntries={["/cards/9"]}>
-          <Routes />
-        </MemoryRouter>
-      </AppContext.Provider>
+      <MemoryRouter initialEntries={["/cards/9"]}>
+        <Routes />
+      </MemoryRouter>
     );
 
-    expect(screen.getByTestId("card-view")).toHaveTextContent("Card not found");
-  });
-
-  test("should show card view with title", () => {
-    render(
-      <AppContext.Provider
-        value={{
-          cards: [
-            {
-              id: 9,
-              title: "Test title",
-            },
-          ],
-        }}
-      >
-        <MemoryRouter initialEntries={["/cards/9"]}>
-          <Routes />
-        </MemoryRouter>
-      </AppContext.Provider>
-    );
-    expect(screen.getByTestId("card-view")).toHaveTextContent("Test title");
-    expect(screen.getByTestId("card-view-id")).toHaveTextContent("9");
+    expect(screen.getByTestId("card-view")).toBeInTheDocument();
   });
 
   test("should show about view", () => {

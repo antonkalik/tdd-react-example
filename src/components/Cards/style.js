@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledBody = styled.div`
+export const StyledCards = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@ export const StyledBody = styled.div`
   }
 `;
 
-export const StyledCards = styled.div`
+export const StyledCardsList = styled.div`
   flex: 1;
   display: flex;
   flex-wrap: wrap;

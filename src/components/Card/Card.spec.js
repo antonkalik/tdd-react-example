@@ -17,12 +17,14 @@ describe("Card", () => {
     expect(title).toHaveTextContent(cardTitle);
   });
 
-  it("should call onRemove function", () => {
+  it("should call onRemove and onClick functions", () => {
     const onRemove = jest.fn();
-    render(<Card onRemove={onRemove} id={cardId} />);
+    const onClick = jest.fn();
+    render(<Card onRemove={onRemove} onClick={onClick} id={cardId} />);
     const element = screen.getByRole("button", { name: "Remove" });
     userEvent.click(element);
     expect(onRemove).toHaveBeenCalledWith(cardId);
+    expect(onClick).toHaveBeenCalledWith(cardId);
   });
 
   it("should render Card without button if onRemove is not passed", () => {

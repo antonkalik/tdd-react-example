@@ -1,11 +1,11 @@
 import { Card } from "src/components/Card";
-import { StyledBody, StyledCards } from "./style";
+import { StyledCardsList, StyledCards } from "./style";
 
-export const Body = ({ cards = [], removeCard }) => {
+export const Cards = ({ cards = [], removeCard, onClickCard }) => {
   return (
-    <StyledBody data-testid="body">
+    <StyledCards data-testid="cards">
       <h3>Cards</h3>
-      <StyledCards data-testid="cards">
+      <StyledCardsList data-testid="cards-list">
         {cards.length === 0 ? (
           <h4>No cards</h4>
         ) : (
@@ -15,10 +15,11 @@ export const Body = ({ cards = [], removeCard }) => {
               id={card.id}
               title={card.title}
               onRemove={removeCard}
+              onClick={onClickCard}
             />
           ))
         )}
-      </StyledCards>
-    </StyledBody>
+      </StyledCardsList>
+    </StyledCards>
   );
 };

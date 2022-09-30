@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardsView /> should render cards view 1`] = `
+<div
+  data-testid="cards-view"
+>
+  <div
+    data-testid="cards"
+  >
+    0
+  </div>
+</div>
+`;
