@@ -15,6 +15,24 @@ describe("reducer", () => {
     });
   });
 
+  it("should handle SET_CARDS", () => {
+    const cards = [
+      { id: 1, title: "Test One" },
+      { id: 2, title: "Test Two" },
+    ];
+
+    expect(
+      reducer(initialState, {
+        type: "SET_CARDS",
+        payload: {
+          cards,
+        },
+      })
+    ).toEqual({
+      cards,
+    });
+  });
+
   it("should handle REMOVE_CARD", () => {
     expect(
       reducer(

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useCallback, useReducer } from "react";
 
 export const initialState = { cards: [] };
 
@@ -14,6 +14,13 @@ export function reducer(state, action) {
             id: state.cards.length + 1,
           },
         ],
+      };
+    case "SET_CARDS":
+      return {
+        cards: action.payload.cards.map((card) => ({
+          id: card.id,
+          title: card.title,
+        })),
       };
     case "REMOVE_CARD":
       return {
@@ -31,22 +38,27 @@ export const AppContext = React.createContext();
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addCard = (title) => {
+  const addCard = useCallback((title) => {
     dispatch({ type: "ADD_CARD", payload: { title } });
-  };
+  }, []);
 
-  const removeCard = (id) => {
+  const removeCard = useCallback((id) => {
     dispatch({ type: "REMOVE_CARD", payload: { id } });
-  };
+  }, []);
 
-  const reset = () => {
+  const setCards = useCallback((cards) => {
+    dispatch({ type: "SET_CARDS", payload: { cards } });
+  }, []);
+
+  const reset = useCallback(() => {
     dispatch({ type: "RESET" });
-  };
+  }, []);
 
   const value = {
     state,
     actions: {
       addCard,
+      setCards,
       removeCard,
       reset,
     },

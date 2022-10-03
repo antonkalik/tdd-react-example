@@ -1,8 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App /> should render app 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  width: 900px;
+  margin: 0 auto;
+  background-color: #333;
+  color: #fff;
+  font-family: "Roboto",sans-serif;
+  font-size: 1.2rem;
+}
+
+.c0 > * {
+  width: 100%;
+}
+
 <div
-  class="sc-bczRLJ ZdcBO"
+  class="c0"
   data-testid="app"
 >
   <div

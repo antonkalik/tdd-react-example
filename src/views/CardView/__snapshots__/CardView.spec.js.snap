@@ -12,6 +12,9 @@ exports[`<CardView /> should render the card view 1`] = `
   <h1>
     Card 9
   </h1>
+  <button>
+    Back
+  </button>
 </div>
 `;
 

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Cards } from "src/components/Cards";
 import { AppContext } from "src/context";
@@ -11,7 +11,7 @@ export const CardsView = () => {
     actions: { removeCard },
   } = useContext(AppContext);
 
-  const onClickCard = (id) => {
+  const onOpenCard = (id) => {
     navigate(`/cards/${id}`);
   };
 
@@ -20,7 +20,7 @@ export const CardsView = () => {
       <Cards
         cards={state.cards}
         removeCard={removeCard}
-        onClickCard={onClickCard}
+        onOpenCard={onOpenCard}
       />
     </div>
   );

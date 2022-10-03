@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { Card } from "./index";
 import userEvent from "@testing-library/user-event";
+import { Card } from "./index";
 
-describe("Card", () => {
+describe("<Card />", () => {
   const cardTitle = "Card Title";
   const cardId = 2;
 
@@ -17,14 +17,20 @@ describe("Card", () => {
     expect(title).toHaveTextContent(cardTitle);
   });
 
-  it("should call onRemove and onClick functions", () => {
+  it("should call onRemove function", () => {
     const onRemove = jest.fn();
-    const onClick = jest.fn();
-    render(<Card onRemove={onRemove} onClick={onClick} id={cardId} />);
+    render(<Card onRemove={onRemove} id={cardId} />);
     const element = screen.getByRole("button", { name: "Remove" });
     userEvent.click(element);
     expect(onRemove).toHaveBeenCalledWith(cardId);
-    expect(onClick).toHaveBeenCalledWith(cardId);
+  });
+
+  it("should call onOpenCard function", () => {
+    const onOpenCard = jest.fn();
+    render(<Card onOpenCard={onOpenCard} id={cardId} />);
+    const element = screen.getByRole("button", { name: "Open" });
+    userEvent.click(element);
+    expect(onOpenCard).toHaveBeenCalledWith(cardId);
   });
 
   it("should render Card without button if onRemove is not passed", () => {

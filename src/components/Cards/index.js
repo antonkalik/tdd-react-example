@@ -1,7 +1,7 @@
 import { Card } from "src/components/Card";
 import { StyledCardsList, StyledCards } from "./style";
 
-export const Cards = ({ cards = [], removeCard, onClickCard }) => {
+export const Cards = ({ cards = [], removeCard, onOpenCard }) => {
   return (
     <StyledCards data-testid="cards">
       <h3>Cards</h3>
@@ -9,13 +9,13 @@ export const Cards = ({ cards = [], removeCard, onClickCard }) => {
         {cards.length === 0 ? (
           <h4>No cards</h4>
         ) : (
-          cards.map((card, index) => (
+          cards.map((card) => (
             <Card
               key={card.id}
               id={card.id}
               title={card.title}
               onRemove={removeCard}
-              onClick={onClickCard}
+              onOpenCard={onOpenCard}
             />
           ))
         )}
