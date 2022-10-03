@@ -18,3 +18,27 @@ exports[`<Cards /> should render cards 1`] = `
   </div>
 </div>
 `;
+
+exports[`<Cards /> should render one card 1`] = `
+<div
+  class="sc-gsnTZi klvCoB"
+  data-testid="cards"
+>
+  <h3>
+    Cards
+  </h3>
+  <div
+    class="sc-dkzDqf jOOvkG"
+    data-testid="cards-list"
+  >
+    <div
+      class="sc-bczRLJ iqeeJQ"
+      data-testid="card"
+    >
+      <h5>
+        Card 1
+      </h5>
+    </div>
+  </div>
+</div>
+`;

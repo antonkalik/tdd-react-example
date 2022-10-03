@@ -33,6 +33,7 @@ describe("<Cards />", () => {
     );
     const element = screen.getByTestId("card");
     expect(element).toBeInTheDocument();
+    expect(screen.getByTestId("cards")).toMatchSnapshot();
     expect(element).toHaveTextContent("Card 1");
   });
 
