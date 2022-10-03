@@ -9,10 +9,9 @@ describe("reducer", () => {
     expect(
       reducer(initialState, {
         type: "ADD_CARD",
-        payload: { title: "test" },
       })
     ).toEqual({
-      cards: [{ id: 1, title: "test" }],
+      cards: [{ id: 1, title: "Title Card 1" }],
     });
   });
 

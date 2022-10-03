@@ -6,15 +6,14 @@ export function reducer(state, action) {
   switch (action.type) {
     case "ADD_CARD":
       return {
-        cards: action.payload.title
-          ? [
-              ...state.cards,
-              {
-                ...action.payload,
-                id: state.cards.length + 1,
-              },
-            ]
-          : state.cards,
+        cards: [
+          ...state.cards,
+          {
+            ...action.payload,
+            title: `Title Card ${state.cards.length + 1}`,
+            id: state.cards.length + 1,
+          },
+        ],
       };
     case "REMOVE_CARD":
       return {
@@ -29,7 +28,7 @@ export function reducer(state, action) {
 
 export const AppContext = React.createContext();
 
-const StoreProvider = ({ children }) => {
+const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const addCard = (title) => {
@@ -56,4 +55,4 @@ const StoreProvider = ({ children }) => {
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
-export default StoreProvider;
+export default ContextProvider;

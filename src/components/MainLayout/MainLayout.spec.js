@@ -1,5 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { MainLayout } from "./index";
+import ContextProvider from "../../context";
+
+jest.mock("react-router", () => ({
+  Outlet: () => <div data-testid="outlet">Outlet</div>,
+}));
 
 jest.mock("src/components/Header", () => ({
   Header: () => <div data-testid="header">Header</div>,
@@ -10,25 +15,32 @@ jest.mock("src/components/Footer", () => ({
 }));
 
 describe("<MainLayout />", () => {
-  test("should have header", () => {
-    render(<MainLayout />);
+  let container = null;
+
+  beforeEach(() => {
+    const { container: mainLayoutContainer } = render(<MainLayout />, {
+      wrapper: ContextProvider,
+    });
+    container = mainLayoutContainer;
+  });
+
+  afterEach(() => {
+    container = null;
+  });
+
+  it("should have header", () => {
     expect(screen.getByTestId("header")).toBeInTheDocument();
   });
 
-  test("should have footer", () => {
-    render(<MainLayout />);
+  it("should have footer", () => {
     expect(screen.getByTestId("footer")).toBeInTheDocument();
   });
 
-  test("should have children", () => {
-    render(
-      <MainLayout />
-    );
+  it("should have children", () => {
     expect(screen.getByTestId("body")).toBeInTheDocument();
   });
 
-  test("should render", () => {
-    const { container } = render(<MainLayout />);
+  it("should render", () => {
     expect(screen.getByTestId("main-layout")).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });

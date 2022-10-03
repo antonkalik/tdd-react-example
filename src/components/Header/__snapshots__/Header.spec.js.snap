@@ -5,18 +5,28 @@ exports[`Header should render Header 1`] = `
   class="sc-bczRLJ fvGLJi"
   data-testid="header"
 >
-  <h1>
-    Logo Title
-  </h1>
-  <div
-    class="buttons"
+  <a
+    href="/"
   >
-    <button>
-      Add
-    </button>
-    <button>
-      Reset
-    </button>
-  </div>
+    <h1>
+      Logo Title
+    </h1>
+  </a>
+  <ul>
+    <li>
+      <a
+        href="/cards"
+      >
+        Cards
+      </a>
+    </li>
+    <li>
+      <a
+        href="/about"
+      >
+        About
+      </a>
+    </li>
+  </ul>
 </header>
 `;
