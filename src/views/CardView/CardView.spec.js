@@ -5,9 +5,11 @@ import userEvent from "@testing-library/user-event";
 
 const mockedNavigate = jest.fn();
 
+const cardId = 9;
+
 jest.mock("react-router-dom", () => ({
   useParams: () => ({
-    id: 9,
+    id: cardId,
   }),
   useNavigate: () => mockedNavigate,
 }));
@@ -22,7 +24,7 @@ const renderView = (state) => {
 
 const cards = [
   {
-    id: 9,
+    id: cardId,
     title: "Card 9",
   },
 ];
@@ -33,7 +35,7 @@ describe("<CardView />", () => {
       cards,
     });
     expect(getByTestId("card-view")).toMatchSnapshot();
-    expect(getByTestId("card-view")).toHaveTextContent("Card 9");
+    expect(getByTestId("card-view")).toHaveTextContent(`Card ${cardId}`);
   });
 
   it("should get back", () => {
@@ -47,11 +49,7 @@ describe("<CardView />", () => {
   });
 
   it("should show not found", () => {
-    const { getByTestId } = render(
-      <AppContext.Provider value={{ state: { cards: [] } }}>
-        <CardView />
-      </AppContext.Provider>
-    );
+    const { getByTestId } = renderView({ cards: [] });
     expect(getByTestId("card-view")).toMatchSnapshot();
     expect(getByTestId("card-view")).toHaveTextContent("Card not found");
   });
