@@ -1,9 +1,10 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useApi } from "./index";
+import axios from "axios";
 
-jest.mock("axios", () => ({
-  get: () => Promise.resolve({ data: "data" }),
-}));
+jest.mock("axios");
+
+axios.get = jest.fn(() => Promise.resolve({ data: [] }));
 
 describe("useApi", () => {
   // afterEach(() => {
@@ -19,6 +20,12 @@ describe("useApi", () => {
   // });
 
   it("should return data", async () => {
+    const data = [1, 2, 3]
+
+    axios.get.mockImplementation(() => {
+      return Promise.resolve({ data });
+    });
+
     const { result, waitForNextUpdate, waitForValueToChange } = renderHook(() =>
       useApi("/test")
     );
@@ -27,7 +34,7 @@ describe("useApi", () => {
 
     expect(result.current.error).toBe(null);
     expect(result.current.loading).toBe(false);
-    expect(result.current.data).toBe("data");
+    expect(result.current.data).toStrictEqual(data);
   });
 
   // it("should return error", () => {
