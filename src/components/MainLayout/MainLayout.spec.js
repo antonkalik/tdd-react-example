@@ -14,6 +14,14 @@ jest.mock("src/components/Footer", () => ({
   Footer: () => <div data-testid="footer">Footer</div>,
 }));
 
+jest.mock("src/hooks/useApi", () => ({
+  useApi: () => ({
+    loading: false,
+    data: [],
+    error: null,
+  }),
+}));
+
 describe("<MainLayout />", () => {
   let container = null;
 

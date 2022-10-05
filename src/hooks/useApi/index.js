@@ -11,21 +11,20 @@ export const useApi = (url) => {
     setError(null);
 
     try {
-      const { data } = await axios({
-        method: "get",
-        url,
-      });
+      const response = await axios.get(url);
 
-      setData(data.slice(0, 50));
+      setData(response.data.slice(0, 50));
     } catch (error) {
       setError(error);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [url]);
 
   useEffect(() => {
-    fetchData();
+    if (url) {
+      fetchData();
+    }
   }, [url]);
 
   return { data, loading, error };

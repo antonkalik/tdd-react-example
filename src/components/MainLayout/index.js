@@ -18,13 +18,17 @@ export const MainLayout = () => {
     if (data) {
       setCards(data);
     }
-  }, [data]);
+  }, [data?.length]);
+
+  if (error) {
+    return <div>Error</div>;
+  }
 
   return (
     <div data-testid="main-layout">
       <Header onReset={reset} onAdd={addCard} />
       <div data-testid="body">
-        <Outlet />
+        {loading ? <div>Loading...</div> : <Outlet />}
       </div>
       <Footer />
     </div>
