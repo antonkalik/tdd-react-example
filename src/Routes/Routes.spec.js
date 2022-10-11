@@ -20,6 +20,12 @@ jest.mock("src/views/AboutView", () => ({
   AboutView: () => <div data-testid="about-view">AboutView</div>,
 }));
 
+jest.mock("src/hooks/useApi", () => ({
+  useApi: () => ({
+    data: [],
+  }),
+}));
+
 const renderRoutes = (route = "/") => {
   return render(
     <ContextProvider>
