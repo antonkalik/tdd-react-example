@@ -37,28 +37,28 @@ const renderRoutes = (route = "/") => {
 };
 
 describe("<Routes />", () => {
-  test("should show home view", () => {
+  it("should show home view", () => {
     renderRoutes();
     expect(screen.getByTestId("home-view")).toBeInTheDocument();
   });
 
-  test("should show cards page", () => {
+  it("should show cards page", () => {
     renderRoutes("/cards");
 
     expect(screen.getByTestId("cards-view")).toBeInTheDocument();
   });
 
-  test("should show card view", () => {
+  it("should show card view", () => {
     renderRoutes("/cards/9");
     expect(screen.getByTestId("card-view")).toBeInTheDocument();
   });
 
-  test("should show about view", () => {
+  it("should show about view", () => {
     renderRoutes("/about");
     expect(screen.getByTestId("about-view")).toBeInTheDocument();
   });
 
-  test("should show not found view", () => {
+  it("should show not found view", () => {
     renderRoutes("/someroute");
     expect(screen.getByText("404 - Not Found")).toBeInTheDocument();
   });
