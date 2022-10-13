@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render Header 1`] = `
+exports[`<Header /> should render Header 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -16,18 +16,6 @@ exports[`Header should render Header 1`] = `
   align-items: center;
   height: 60px;
   background-color: #777;
-}
-
-.c0 .buttons {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c0 .buttons button {
-  margin-left: 10px;
-  width: 5rem;
 }
 
 <header

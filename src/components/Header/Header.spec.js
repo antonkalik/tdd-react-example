@@ -29,8 +29,11 @@ describe("<Header />", () => {
     );
     const resetButton = screen.getByRole("button", { name: "Reset" });
     const addButton = screen.getByRole("button", { name: "Add" });
+    const buttons = screen.getByTestId("header-buttons");
+
     expect(resetButton).toBeInTheDocument();
     expect(addButton).toBeInTheDocument();
+    expect(buttons).toBeInTheDocument();
   });
 
   it("should call onReset function", () => {
@@ -55,5 +58,15 @@ describe("<Header />", () => {
     const element = screen.getByRole("button", { name: "Add" });
     userEvent.click(element);
     expect(onAdd).toHaveBeenCalled();
+  });
+
+  it("should not have buttons", () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Header />
+      </MemoryRouter>
+    );
+    const element = screen.queryByTestId("header-buttons");
+    expect(element).not.toBeInTheDocument();
   });
 });

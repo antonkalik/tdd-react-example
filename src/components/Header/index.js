@@ -1,4 +1,4 @@
-import { StyledHeader } from "./style";
+import { StyledHeader, StyledButtons } from "./style";
 import { Link, useLocation } from "react-router-dom";
 
 export const Header = ({ onReset, onAdd }) => {
@@ -11,19 +11,11 @@ export const Header = ({ onReset, onAdd }) => {
         <h1>Logo Title</h1>
       </Link>
       {isCardsView && (
-        <div className="buttons">
+        <StyledButtons data-testid="header-buttons">
           <button onClick={onAdd}>Add</button>
           <button onClick={onReset}>Reset</button>
-        </div>
+        </StyledButtons>
       )}
-      <ul>
-        <li>
-          <Link to="/cards">Cards</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
     </StyledHeader>
   );
 };

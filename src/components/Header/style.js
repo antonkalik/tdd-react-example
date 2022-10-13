@@ -6,11 +6,11 @@ export const StyledHeader = styled.header`
   align-items: center;
   height: 60px;
   background-color: #777;
-  .buttons {
-    display: flex;
-    button {
-      margin-left: 10px;
-      width: 5rem;
-    }
+`;
+export const StyledButtons = styled.div`
+  display: flex;
+  button {
+    margin-left: 10px;
+    width: 5rem;
   }
 `;
