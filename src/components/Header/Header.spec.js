@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { Header } from "./index";
@@ -10,7 +10,7 @@ const header = (
   </MemoryRouter>
 );
 
-describe("Header", () => {
+describe("<Header />", () => {
   it("should render Header", () => {
     render(header);
     expect(screen.getByTestId("header")).toMatchSnapshot();

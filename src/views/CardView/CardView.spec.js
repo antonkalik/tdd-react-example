@@ -31,11 +31,11 @@ const cards = [
 
 describe("<CardView />", () => {
   it("should render the card view", () => {
-    const { getByTestId } = renderView({
+    renderView({
       cards,
     });
-    expect(getByTestId("card-view")).toMatchSnapshot();
-    expect(getByTestId("card-view")).toHaveTextContent(`Card ${cardId}`);
+    expect(screen.getByTestId("card-view")).toMatchSnapshot();
+    expect(screen.getByTestId("card-view")).toHaveTextContent(`Card ${cardId}`);
   });
 
   it("should get back", () => {
@@ -49,8 +49,8 @@ describe("<CardView />", () => {
   });
 
   it("should show not found", () => {
-    const { getByTestId } = renderView({ cards: [] });
-    expect(getByTestId("card-view")).toMatchSnapshot();
-    expect(getByTestId("card-view")).toHaveTextContent("Card not found");
+    renderView({ cards: [] });
+    expect(screen.getByTestId("card-view")).toMatchSnapshot();
+    expect(screen.getByTestId("card-view")).toHaveTextContent("Card not found");
   });
 });

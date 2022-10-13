@@ -57,7 +57,7 @@ exports[`<Cards /> should render cards 1`] = `
   data-testid="cards"
 >
   <h3>
-    Cards
+    All Cards
   </h3>
   <div
     class="c1"
@@ -146,7 +146,7 @@ exports[`<Cards /> should render one card 1`] = `
   data-testid="cards"
 >
   <h3>
-    Cards
+    All Cards
   </h3>
   <div
     class="c1"

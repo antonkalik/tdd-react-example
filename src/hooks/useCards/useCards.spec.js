@@ -1,6 +1,8 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import { initCards, title } from "src/__mocks__/initCards";
+import { initCards } from "src/utils";
 import { useCards } from "./index";
+
+const title = "Test Card";
 
 describe("useCards", () => {
   it("should return an empty array if there are no cards", () => {
@@ -23,7 +25,6 @@ describe("useCards", () => {
 
   it("should return an correct shape of card", () => {
     const { result } = renderHook(() => useCards(initCards));
-    const [cardOne, cardTwo] = result.current.cards;
 
     result.current.cards.forEach((card, index) => {
       expect(card).toEqual({

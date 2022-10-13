@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { initCards } from "src/__mocks__/initCards";
+import { initCards } from "src/utils";
 import { Cards } from "./index";
 
 describe("<Cards />", () => {
@@ -8,16 +8,14 @@ describe("<Cards />", () => {
     expect(screen.getByTestId("cards")).toMatchSnapshot();
   });
 
-  it("should render message with no cards", () => {
-    const { container } = render(<Cards />);
-    const message = container.querySelector("h4");
-    expect(message).toHaveTextContent("No cards");
+  it("should render main title", () => {
+    render(<Cards />);
+    expect(screen.getByText("All Cards")).toBeInTheDocument();
   });
 
-  it("should render title", () => {
-    const { container } = render(<Cards />);
-    const title = container.querySelector("h3");
-    expect(title).toHaveTextContent("Cards");
+  it("should render message with no cards", () => {
+    render(<Cards />);
+    expect(screen.getByText("No cards")).toBeInTheDocument();
   });
 
   it("should render one card", () => {

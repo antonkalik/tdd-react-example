@@ -1,7 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { AppContext } from "src/context";
-import { initCards } from "src/__mocks__/initCards";
 import { CardsView } from "./index";
+
+const initCards = Array.from({ length: 5 }, (_, i) => ({
+  title: `Test Card ${i + 1}`,
+  id: i + 1,
+}));
 
 jest.mock("src/components/Cards", () => ({
   Cards: ({ cards }) => <div data-testid="cards">{cards.length}</div>,

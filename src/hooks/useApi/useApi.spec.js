@@ -18,9 +18,7 @@ describe("useApi", () => {
   it("should return data", async () => {
     const data = [1, 2, 3];
 
-    axios.get.mockImplementation(() => {
-      return Promise.resolve({ data });
-    });
+    axios.get.mockImplementation(() => Promise.resolve({ data }));
 
     const { result, waitForValueToChange } = renderHook(() => useApi("/test"));
 
@@ -33,9 +31,7 @@ describe("useApi", () => {
 
   it("should return error", async () => {
     const error = new Error("test error message");
-    axios.get.mockImplementation(() => {
-      return Promise.reject(error);
-    });
+    axios.get.mockImplementation(() => Promise.reject(error));
 
     const { result, waitForValueToChange } = renderHook(() => useApi("/test"));
     await waitForValueToChange(() => result.current.error);

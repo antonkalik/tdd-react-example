@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Footer } from "./index";
 
-describe("Footer", () => {
+describe("<Footer />", () => {
   it("should render footer", () => {
     render(<Footer totalCards={9} />);
     expect(screen.getByTestId("footer")).toMatchSnapshot();
