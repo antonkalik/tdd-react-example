@@ -44,7 +44,6 @@ describe("<Routes />", () => {
 
   it("should show cards page", () => {
     renderRoutes("/cards");
-
     expect(screen.getByTestId("cards-view")).toBeInTheDocument();
   });
 
