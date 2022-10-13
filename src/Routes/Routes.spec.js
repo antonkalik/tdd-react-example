@@ -59,8 +59,7 @@ describe("<Routes />", () => {
   });
 
   test("should show not found view", () => {
-    const { container } = renderRoutes("/someroute");
-    const title = container.querySelector("h1");
-    expect(title).toHaveTextContent("404 - Not Found");
+    renderRoutes("/someroute");
+    expect(screen.getByText("404 - Not Found")).toBeInTheDocument();
   });
 });

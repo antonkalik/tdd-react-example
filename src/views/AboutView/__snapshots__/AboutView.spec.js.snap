@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AboutView /> should render view 1`] = `
+<div
+  data-testid="about-view"
+>
+  <h1>
+    About View
+  </h1>
+</div>
+`;

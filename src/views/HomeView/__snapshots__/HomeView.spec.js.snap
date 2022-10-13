@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeView /> should render view 1`] = `
+<div
+  data-testid="home-view"
+>
+  <h1>
+    Home View
+  </h1>
+</div>
+`;
