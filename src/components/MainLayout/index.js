@@ -30,7 +30,7 @@ export const MainLayout = () => {
       <div data-testid="body">
         {loading ? <div>Loading...</div> : <Outlet />}
       </div>
-      <Footer />
+      <Footer totalCards={data?.length} />
     </div>
   );
 };
